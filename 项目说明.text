@@ -1,0 +1,31 @@
+1、新建初始化项目
+
+2、编写HelloController
+
+3、编写相关代码
+    package com.cn.mical.springboot.controller;
+
+    import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
+    /**
+    * @program: helloword
+    * @Date: 2019/6/15 21:52
+    * @Author: qinxinhua
+    * @Description:
+    */
+    @RestController
+    public class HelloController {
+
+        @RequestMapping("/say")
+        public String say(){
+            return "Hello Word";
+        }
+    }
+
+
+4、启动项目
+
+5、打开浏览器访问http://localhost:8080/say
+
+6、返回结果：Hello Word
