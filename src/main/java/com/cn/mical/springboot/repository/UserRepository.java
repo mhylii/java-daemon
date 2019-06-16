@@ -3,6 +3,7 @@ package com.cn.mical.springboot.repository;
 import com.cn.mical.springboot.pojo.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -41,4 +42,8 @@ public class UserRepository {
         User user = (User)repository.get(id);
         return user;
     }
+    public Collection<User> findAll(){
+        return repository.values();
+    }
+
 }

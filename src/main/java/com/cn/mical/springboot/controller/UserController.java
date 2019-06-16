@@ -8,9 +8,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @program: springboot-helloword
@@ -28,13 +27,13 @@ public class UserController {
     }
 
     @PostMapping("/person/save")
-    public JSONObject save(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public JSONObject save(@RequestParam(value = "name") String name) throws Exception{
         JSONObject jsonObject = new JSONObject();
-        String name = request.getParameter("name");
         boolean result = false;
         User user = new User();
         if (!StringUtils.isEmpty(name)) {
             user.setUserName(name);
+            System.out.println(user);
             result = UserRepositorypository.save(user);
         }
 
@@ -44,18 +43,17 @@ public class UserController {
     }
 
     @GetMapping("/person/get/{id}")
-    public JSONObject get(@PathVariable("id") Integer id) throws Exception{
-        JSONObject jsonObject = new JSONObject();
-        User user = null;
+    public User get(@PathVariable("id") Integer id) throws Exception{
+        User user = new User();
         if (!StringUtils.isEmpty(id)) {
             user = UserRepositorypository.get(id);
         }
+        return user;
+    }
 
-        if (user == null) {
-            user = new User();
-        }
-
-        jsonObject.put("data", user);
-        return jsonObject;
+    @GetMapping("/person/getUserInfo")
+    public User getUserInfo(@RequestParam("id") Integer id) throws Exception{
+        User user = user = UserRepositorypository.get(id);
+        return user;
     }
 }
