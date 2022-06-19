@@ -21,7 +21,7 @@ pipeline {
 
     stage('copy jar') {
       steps {
-        sh 'cp /root/.jenkins/workspace/hello/springboot-helloword/target/springboot-helloword-0.0.1-SNAPSHOT.jar /light_cvm/'
+        sh 'cp /root/.jenkins/workspace/hello_master/target/springboot-helloword-0.0.1-SNAPSHOT.jar /light_cvm/'
       }
     }
 
