@@ -27,7 +27,7 @@ pipeline {
 
     stage('run jar') {
       steps {
-        sh 'nohup java -jar springboot-helloword-0.0.1-SNAPSHOT.jar > out.log &'
+        sh 'sudo nohup java -jar springboot-helloword-0.0.1-SNAPSHOT.jar > out.log &'
         qyWechatNotification(webhookUrl: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a302192a-55dd-48bd-be57-a551f7b776c9')
       }
     }
