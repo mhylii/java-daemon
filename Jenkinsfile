@@ -27,7 +27,7 @@ pipeline {
 
     stage('run jar') {
       steps {
-        sh 'BUILD_ID=dontKillMe & ./light_cvm/start.sh'
+        sh 'sh /light_cvm/start.sh'
       }
     }
 
