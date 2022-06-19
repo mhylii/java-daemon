@@ -28,7 +28,7 @@ pipeline {
     stage('run jar') {
       steps {
         sh '''BUILD_ID=dontKillMe
-nohup java -jar /light_cvm/springboot-helloword-0.0.1-SNAPSHOT.jar > /light_cvm/out.log &'''
+setsid java -jar /light_cvm/springboot-helloword-0.0.1-SNAPSHOT.jar > /light_cvm/out.log &'''
       }
     }
 
