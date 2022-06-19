@@ -9,7 +9,7 @@ pipeline {
 
     stage('get code from github') {
       steps {
-        git(url: 'https://github.com/Zhaoxixiangchu/springboot-helloword.git', branch: 'master', changelog: true)
+        git(url: 'https://gitee.com/Zhaoxixaingchu/springboot-helloword.git', branch: 'master', changelog: true)
       }
     }
 
