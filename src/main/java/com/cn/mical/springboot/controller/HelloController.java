@@ -14,6 +14,6 @@ public class HelloController {
 
     @RequestMapping("/say")
     public String say(){
-        return "Hello Word";
+        return "加油努力学历啊，给自己制造鸡汤喝着学！";
     }
 }
